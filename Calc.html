@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Angular</title>
+<script src="pic/angular.min.js"></script>
+
+</head>
+<script>
+var app=angular.module("mycalc",[]);
+app.controller("calc",function($scope)
+			{
+				$scope.result=function()
+				{
+					if($scope.operator=='+')
+					{
+						return $scope.a+$scope.b;
+					}
+					if($scope.operator=='-')
+					{
+						return $scope.a-$scope.b;
+					}
+					if($scope.operator=='*')
+					{
+						return $scope.a*$scope.b;
+					}
+					if($scope.operator=='/')
+					{
+						return $scope.a/$scope.b;
+					}
+					if($scope.operator=='%')
+					{
+						return $scope.a%$scope.b;
+					}
+					if($scope.operator=='^')
+					{
+						return $scope.a^$scope.b;
+					}
+				};
+			}
+			);
+</script>
+
+<body>
+<div ng-app="mycalc" ng-controller="calc">
+<table border="solid">
+<tr>
+<td>
+<table >
+<tr>
+<td>
+Input Value 1:<input type="number" ng-model="a"></td>
+</tr>
+<tr>
+<td>
+Input Value 2:<input type="number" ng-model="b"></td>
+</tr>
+</table></td>
+<td>
+<table >
+<tr>
+<td>
+Operator's:<select ng-model="operator" >
+<option>+</option>
+<option>-</option>
+<option>*</option>
+<option>/</option>
+<option>%</option>
+<option>^</option>
+</select>
+</td></tr>
+<tr>
+<td>
+<input  ng-value="result()" placeholder="result"/> 
+</td></tr></table>
+</td></tr></table>
+</body>
+</html>
